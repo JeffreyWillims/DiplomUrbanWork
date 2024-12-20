@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Главная страница {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <style>
+        body {
+    background-image:
+        {% if request.path == '/portfolio/improvement/' %}
+            url('/static/img/background_improvement2.jpg')
+        {% elif request.path == '/portfolio/commercial_interiors/' %}
+            url('/static/img/background_commercial_interiors1.jpg')
+        {% elif request.path == '/portfolio/residential_interiors/' %}
+            url('/static/img/background_residential_interiors3.1.jpg')
+        {% else %}
+            url('/static/img/home_page4.jpeg')
+        {% endif %};
+            background-size: cover; / Изменяет размер изображения, чтобы покрыть весь экран /
+            background-repeat: no-repeat; / Изображение не повторяется /
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; / Цвет фона страницы /
+            background-attachment: scroll;
+        }
+        </style>
+</head>
+<body>
+    {% block menu %}
+    <nav>
+        <div class="logo">
+            <a href='/' class="logo"><img src="{% static 'img/logo1.png' %}" alt="Логотип " /></a>
+        </div>
+        <div class="menu">
+            <a href="/portfolio">Портфолио</a>
+            <a href="/services">Услуги</a>
+            <a href="/contacts">Контакты</a>
+        </div>
+    </nav>
+
+    {% endblock %}
+
+    </div>
+
+    {% if request.path == '/portfolio/' %}
+    <div class="bottom-navigation">
+        <p class="title">Портфолио</p>
+        <div class="bottom-menu">
+            <a href="/portfolio/architecture">АРХИТЕКТУРА</a>
+            <a href="/portfolio/improvement">БЛАГОУСТРОЙСТВО</a>
+            <a href="/portfolio/commercial_interiors">КОММЕРЧЕСКИЕ ИНТЕРЬЕРЫ</a>
+            <a href="/portfolio/residential_interiors">ЖИЛЫЕ ИНТЕРЬЕРЫ</a>
+        </div>
+    </div>
+
+    {% endif %}
+
+    {% if request.path == '/portfolio/architecture/' %}
+
+    <div class="bottom-navigation">
+        <p class="title">АХИТЕКТУРА</p>
+        <p class="text">Общественные здания, индивидуальные и многоквартирные жилые дома</p>
+    </div>
+    <div class="architecture-container">
+        <div class="image-grid">
+            <a href="#">
+                <img src="{% static 'img/img_architecture/1.png' %}" alt="Первое изображение" />
+                <p>Проект одноэтажного дома "В центре"</p>
+            </a>
+            <a href="#">
+                <img src="{% static 'img/img_architecture/2.png' %}" alt="Второе изображение" />
+                <p>Проект одноэтажного дома "Зеленогорский"</p>
+            </a>
+            <a href="#">
+                <img src="{% static 'img/img_architecture/3.png' %}" alt="Третье изображение" />
+                <p>ДОМ ДВУХЭТАЖНЫЙ С ЦОКОЛЬНЫМ ЭТАЖОМ "РОДНЕКОВСКИЙ"</p>
+            </a>
+
+        </div>
+
+    </div>
+    {% endif %}
+
+    {% if request.path == '/portfolio/improvement/' %}
+    <div class="bottom-navigation">
+        <p class="title">Благоустройство</p>
+        <p class="text">Ландшафтный дизайн частных территорий</p>
+    </div>
+
+    <div class="architecture-container">
+        <div class="image-grid">
+            <a href="#">
+                <img src="{% static 'img/img_improvement/1.jpg' %}" alt="Первое изображение" />
+                <h2>ЛАНДШАФТНЫЙ ДИЗАЙН ЧАСТНОГО ДОМА В Кисловодске</h2>
+            </a>
+            <a href="#">
+                <img src="{% static 'img/img_improvement/2.jpeg' %}" alt="Второе изображение" />
+                <h2>ЛАНДШАФТНЫЙ ДИЗАЙН ЧАСТНОГО ДОМА В Кисловодске</h2>
+            </a>
+            <a href="#">
+                <img src="{% static 'img/img_improvement/3.1.jpg' %}" alt="Третье изображение" />
+                <h2>ЛАНДШАФТНЫЙ ДИЗАЙН ЧАСТНОГО ДОМА В КисловодскеЕ</h2>
+            </a>
+
+        </div>
+
+    </div>
+    {% endif %}
+
+     {% if request.path == '/portfolio/commercial_interiors/' %}
+    <div class="bottom-navigation">
+        <p class="title"> Дизайн коммерческих помещений </p>
+        <p class="text">Дизайн общественных пространств</p>
+    </div>
+
+    <div class="architecture-container">
+        <div class="image-grid">
+            <a href="#">
+                <img src="{% static 'img/img_commercial_interiors/1.1.jpg' %}" alt="Первое изображение" />
+                <p>ДИЗАЙН КОНФЕРЕНЦ-ЗАЛА</p>
+            </a>
+            <a href="#">
+                <img src="{% static 'img/img_commercial_interiors/2.2.jpg' %}" alt="Второе изображение" />
+                <p>ДИЗАЙН КОНФЕРЕНЦ-ЗАЛА</p>
+            </a>
+            <a href="#">
+                <img src="{% static 'img/img_commercial_interiors/3.3.jpg' %}" alt="Третье изображение" />
+                <p>ДИЗАЙН КОНФЕРЕНЦ-ЗАЛА</p>
+            </a>
+
+        </div>
+    </div>
+    {% endif %}
+
+
+    {% if request.path == '/portfolio/residential_interiors/' %}
+    <div class="bottom-navigation">
+        <p class="title"> ЖИЛЫЕ ИНТЕРЬЕРЫ </p>
+        <p class="text">Дизайн интерьера квартир и частных домов</p>
+    </div>
+
+    <div class="architecture-container">
+        <div class="image-grid">
+            <a href="#">
+                <img src="{% static 'img/img_residential_interiors/1.1.jpg' %}" alt="Первое изображение" />
+                <p>Дизайн Гостиной</p>
+            </a>
+            <a href="#">
+                <img src="{% static 'img/img_residential_interiors/2.2.jpg' %}" alt="Второе изображение" />
+                <p>Дизайн Кухни</p>
+            </a>
+            <a href="#">
+                <img src="{% static 'img/img_residential_interiors/3.3.jpg' %}" alt="Третье изображение" />
+                <p>Дизайн Детской</p>
+            </a>
+
+        </div>
+    </div>
+    {% endif %}
+
+</body>
+</html>

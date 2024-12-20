@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{title}}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+<body>
+
+    {% block menu %}
+    <nav>
+        <div class="logo">
+            <a href='/' class="logo"><img src="{% static 'img/logo2.png' %}" alt="Логотип " /></a>
+        </div>
+        <div class="menu">
+            <a href="/portfolio">Портфолио</a>
+            <a href="/services">Услуги</a>
+            <a href="/contacts">Контакты</a>
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% block content %}
+    <div class="contact-info">
+        <div class="column">
+            <div>ЗАКАЗАТЬ ПРОЕКТ</div>
+            <br>
+            <div> +7 (938) 346-22-26</div>
+            <div> +7 (928) 251-44-99</div>
+            <div>stroialtair26@yandex.ru</div>
+        </div>
+        <div class="column">
+            <div>АДРЕС</div>
+            <br>
+            <div>г Кисловодск, ул. Революции, 50</div>
+            <div>Россия</div>
+        </div>
+        <div class="column">
+            <div>ВРЕМЯ РАБОТЫ</div>
+            <br>
+            <div>пн-пт 10:00 - 18:00</div>
+        </div>
+    </div>
+    {% endblock %}
+
+</body>
+</html>
